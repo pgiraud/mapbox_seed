@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #BASE_URL="http://a.tiles.mapbox.com/v3/mapbox.mapbox-streets/6/"
-BASE_URL="http://a.tiles.mapbox.com/v3/pgiraud.map-h0vzx7qc"
+BASE_URL="http://a.tiles.mapbox.com/v3/pgiraud.map-vk67gbuy"
 
 pow () {
     set $1 $2 1
