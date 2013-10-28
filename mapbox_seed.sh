@@ -24,13 +24,17 @@ do
     do
         n=$(printf %03d $j)
         filename="file_"$n".png"
-        if [ ! -f $filename ] 
+        if [ ! -f $filename ]
         then
             wget -O $filename $BASE_URL"/"$ZOOM"/"$h"/"$j".png"
         fi
     done
-    echo "montage file_*.png -tile \"x\"$COLS -geometry +0+0 ../col_`printf %03d $h`.png"
-    montage file_*.png -tile "x"$COLS -geometry +0+0 ../col_`printf %03d $h`.png
+    filename="../col_"`printf %03d $h`".png"
+    if [ ! -f $filename ]
+    then
+        echo "montage file_*.png -tile \"x\"$COLS -geometry +1+0 ../col_`printf %03d $h`.png"
+        montage file_*.png -tile "x"$COLS -geometry +0+0 ../col_`printf %03d $h`.png
+    fi
     cd ..
 done
 #montage col_*.png -tile $COLS"x" -geometry +0+0 map.png
